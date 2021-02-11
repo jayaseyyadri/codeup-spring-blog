@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Results</title>
+</head>
+<body>
+<h3>You rolled <span th:text="${userChoice}"></span></h3>
+<h3>The number is: <span th:text="${randomNumber}"></span></h3>
+
+<h5><span th:text="${message}";></span></h5>
+
+<a href=/roll-dice">Play Again!</a>
+</body>
+</html>

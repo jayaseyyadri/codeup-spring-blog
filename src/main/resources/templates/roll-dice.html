@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Let's  roll dice!</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Let's roll dice!</title>
 
 </head>
 <body>
@@ -11,11 +14,25 @@
 <nav th:replace="/partials/partials::nav"></nav>
 
 <p>Hello, Roll the dice by clicking a number below:</p>
+<ul>
+    <li><a  th:href="@{roll-dice/1}">1</a></li>
+    <li><a  th:href="@{roll-dice/2}">2</a></li>
+    <li><a  th:href="@{roll-dice/3}">3</a></li>
+    <li><a  th:href="@{roll-dice/4}">4</a></li>
+    <li><a  th:href="@{roll-dice/5}">5</a></li>
+    <li><a  th:href="@{roll-dice/6}">6</a></li>
+
+</ul>
 
 <footer th:replace="partials/partials::footer"></footer>
+
+
 </body>
 </html>
 
 <!--need 6 links -->
 <!--when user clicks make a GET req roll-dice/n ->number clicked on-->
 <!--show randon number & user's guess- & dynamic mssg guess is rght/wrong->
+<!-    <li><a href="roll-dice.html" th:href="@{/1}">1</a></li>
+   	  <li><a th:href="@{/roll-dice/1}">1</a></li>
+ --->
