@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 
 
 @Controller
@@ -20,6 +21,8 @@ public class PostController {
     @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
     @ResponseBody
     public String postIndividualPost(@PathVariable int id, Post post) {
+        post.setBody("Hello there , this is my first post");
+        post.setTitle("First Post");
         return "index";
     }
 
@@ -33,8 +36,10 @@ public class PostController {
 
     @RequestMapping(path = "/posts/create/", method = RequestMethod.POST)
     @ResponseBody
-    public String viewPost() {
-        return "view your posts";
+    public String viewPost(Post post) {
+
+
+        return "view your created posts";
     }
 
 }
