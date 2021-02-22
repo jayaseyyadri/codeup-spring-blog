@@ -1,5 +1,4 @@
 package com.jaya.springblog.model;
-
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +16,11 @@ public class Post {
 
 //    @Column(nullable = false)
 //    private Date postingDate;
+
+
+
+    @ManyToOne
+    private User user;
 
     public Post() {
     }

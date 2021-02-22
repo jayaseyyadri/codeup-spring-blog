@@ -1,7 +1,6 @@
 package com.jaya.springblog.model;
-
-
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="users")
@@ -20,10 +19,13 @@ public class User {
     private String password;
 
 
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
+
+
     public User(){}
 
     public User(long id, String username, String email, String password) {
-        this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
