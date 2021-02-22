@@ -30,13 +30,30 @@ public class SpringblogPostController {
     @GetMapping("/posts/{id}")
     public String singlePost(@PathVariable long id,Model model){
         Post onePost =postDao.getOne(id);
-        model.addAttribute(("post,onePost"));
+        model.addAttribute("post",onePost);
         return "posts/show";
     }
 
+    @GetMapping("/posts/{id}/edit")
+    public String editPostForm(@PathVariable long id, Model model) {
+        model.addAttribute("post", postDao.getOne(id));
+        return "posts/edit";
+    }
 
-    @PostMapping("/posts/delete/{id}")
-    public String deletePost(@PathVariable long id, Model model){
+    @PostMapping("/posts/{id}/edit")
+    public String updatePost(@PathVariable long id,@RequestParam String title, @RequestParam String content){
+       Post post = new Post(
+               id,
+               title,
+               content
+               );
+       postDao.save(post);
+       return "redirect:/posts";
+    }
+
+
+    @PostMapping("/posts/{id}/delete")
+    public String deletePost(@PathVariable long id){
         postDao.deleteById(id);
         return "redirect:/posts";
 
