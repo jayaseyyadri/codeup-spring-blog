@@ -10,7 +10,7 @@
 <h1> View single post below:</h1>
 <h3 th:text="${post.title}"></h3>
 <p th:text="${post.content}"></p>
-
+<p th:text="${post.user.email}"></p>
 <a th:href="@{|/posts/${post.id}/edit|}">Edit Post</a>
 
 </body>
