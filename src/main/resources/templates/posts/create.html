@@ -7,12 +7,20 @@
 </head>
 <body>
 <div class="container">
-    <h3 th:text="${post.user.email}"></h3>
-<form method="post" action="@{/posts/create}"th:object="${post}">
-    <label for="title" ><input type="text"  id="title" th:field="*{title}"></label>
-    <label for="content" ><input type="text"  id="content"  th:field="*{content}"></label>
-        <button type="submit">Submit</button>
+<!--    <h3 th:text="${post.user.email}"></h3>-->
+<form th:method="post" th:action="@{/posts/create}"th:object="${post}">
+    <div>
+        <label for="title" >Title<input type="text"  id="title" th:field="*{title}"></label>
+    </div>
+   <div>
+       <label for="content" >Content<input type="text"  id="content"  th:field="*{content}"></label>
+   </div>
+
+    <button type="submit" value="Create Post">Submit</button>
+
 </form>
+
 </div>
+
 </body>
 </html>
