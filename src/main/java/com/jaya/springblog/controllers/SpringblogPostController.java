@@ -4,6 +4,7 @@ import com.jaya.springblog.model.Post;
 import com.jaya.springblog.model.PostRepository;
 import com.jaya.springblog.model.User;
 import com.jaya.springblog.model.UserRepository;
+//import com.jaya.springblog.services.EmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,13 +14,16 @@ import java.util.List;
 @Controller
 public class SpringblogPostController {
 
+//    if a property is final has to be injected through constructor
     private final PostRepository postsDao;
     private final UserRepository usersDao;
+//    private final EmailService emailService;
 
 
-    public SpringblogPostController(PostRepository postsDao,UserRepository usersDao) {
+    public SpringblogPostController(PostRepository postsDao, UserRepository usersDao) {
         this.postsDao = postsDao;
         this.usersDao=usersDao;
+//        this.emailService = emailService;
     }
 
     @GetMapping("/posts")
@@ -46,12 +50,9 @@ public class SpringblogPostController {
     }
 
     @PostMapping("/posts/{id}/edit")
-    public String updatePost(@PathVariable long id,@RequestParam String title, @RequestParam String content){
-       Post post = new Post(
-               id,
-               title,
-               content
-               );
+    public String updatePost(@PathVariable long id,@ModelAttribute Post post){
+        User user =usersDao.findAll().get(0);
+        post.setUser(user);
        postsDao.save(post);
        return "redirect:/posts";
     }
@@ -73,16 +74,20 @@ public class SpringblogPostController {
         return "posts/create";
     }
 
-@PostMapping ("/posts/create")
-    public String createPost(@RequestParam String title,@RequestParam String content){
-        Post post = new Post();
-        post.setTitle(title);
-        post.setContent(content);
+    @PostMapping ("/posts/create")
+    public String createPost(@ModelAttribute Post post){
 
-    User user =usersDao.getOne(0L);
-       post.setUser(user);
+//        Post post = new Post();
+//        post.setTitle(title);
+//        post.setContent(content);
+
+        User user =usersDao.findAll().get(0);
+        post.setUser(user);
         postsDao.save(post);
-        return "redirect:/posts/"+post.getId();
+//       String subject ="New post created";
+//       String body = "Dear" + savedPost.getUser().getUsername() + ". Thank you for creating a post ! Your post id is "+savedPost.getId();
+//        emailService.prepareAndSend(savedPost,subject, body);
+        return "redirect:/posts";
 }
 
 }
