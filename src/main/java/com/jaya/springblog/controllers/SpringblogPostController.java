@@ -4,7 +4,8 @@ import com.jaya.springblog.model.Post;
 import com.jaya.springblog.model.PostRepository;
 import com.jaya.springblog.model.User;
 import com.jaya.springblog.model.UserRepository;
-//import com.jaya.springblog.services.EmailService;
+import com.jaya.springblog.services.EmailService;
+import com.jaya.springblog.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,13 +18,15 @@ public class SpringblogPostController {
 //    if a property is final has to be injected through constructor
     private final PostRepository postsDao;
     private final UserRepository usersDao;
-//    private final EmailService emailService;
+    private final EmailService emailService;
+    private final UserService userService;
 
 
-    public SpringblogPostController(PostRepository postsDao, UserRepository usersDao) {
+    public SpringblogPostController(PostRepository postsDao, UserRepository usersDao, EmailService emailService,UserService userService) {
         this.postsDao = postsDao;
         this.usersDao=usersDao;
-//        this.emailService = emailService;
+        this.emailService = emailService;
+        this.userService =userService;
     }
 
     @GetMapping("/posts")
@@ -81,12 +84,13 @@ public class SpringblogPostController {
 //        post.setTitle(title);
 //        post.setContent(content);
 
-        User user =usersDao.findAll().get(0);
+
+        User user = userService.loggedInUser();
         post.setUser(user);
-        postsDao.save(post);
-//       String subject ="New post created";
-//       String body = "Dear" + savedPost.getUser().getUsername() + ". Thank you for creating a post ! Your post id is "+savedPost.getId();
-//        emailService.prepareAndSend(savedPost,subject, body);
+       Post savedPost= postsDao.save(post);
+       String subject ="New post created";
+       String body = "Dear" + savedPost.getUser().getUsername() + ". Thank you for creating a post ! Your post id is "+savedPost.getId();
+        emailService.prepareAndSend(savedPost,subject, body);
         return "redirect:/posts";
 }
 
