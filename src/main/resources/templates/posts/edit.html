@@ -7,13 +7,14 @@
 </head>
 <body>
 <div>
-<form th:action="@{/posts/edit/{id}/edit(id=${post.id})}" method="post" th:object="${post}">
+<form th:action="@{/posts/{id}/edit(id=${post.id})}" method="post" th:object="${post}">
    <div>
-        <label for="editTitle">Title <input type="text"  id="editTitle" th:placeholder="#{post.title}"  th:value="${post.title}"></label>
+        <label for="editTitle">Title <input type="text"  id="editTitle" th:field="*{title}"   th:value="${post.title}"></label>
    </div>
    <div>
-        <label for="editBody">Content <textarea id="editBody" th:placeholder="#{post.content}"  th:value="${post.content}"></textarea></label>
+        <label for="editBody">Content <textarea id="editBody"  th:field="*{content}"   th:text="${post.content}"></textarea></label>
     </div>
+    <input type="hidden" th:field="*{id}"/>
 
     <button type="submit">Submit</button>
 

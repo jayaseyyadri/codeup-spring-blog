@@ -19,9 +19,17 @@ public class User {
     private String password;
 
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<Post> posts;
 
+
+//        copy constructor
+    public User(User copy){
+        this.id = copy.id;
+        this.username =copy.username;
+        this.password= copy.password;
+        this.email =copy.email;
+    }
 
     public User(){}
 
