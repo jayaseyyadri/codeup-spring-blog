@@ -53,7 +53,7 @@ public class SpringblogPostController {
     }
 
     @PostMapping("/posts/{id}/edit")
-    public String updatePost(@PathVariable long id,@ModelAttribute Post post){
+    public String updatePost(@ModelAttribute Post post){
         User user =usersDao.findAll().get(0);
         post.setUser(user);
        postsDao.save(post);

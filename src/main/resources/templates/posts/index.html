@@ -9,8 +9,9 @@
 <div>
 
 <p> your post  below:</p>
-    <div th:each="singlePost : ${posts}">
-<a th:text="${singlePost.title}"  th:href="@{|/AllPosts/${singlePost.id}|}"></a>
+
+    <div th:each="singlePost : ${posts}" >
+<a th:text="${singlePost.title}"  th:href="@{/posts/{id}(id=${singlePost.id})}"></a>
 <h3 th:text="${singlePost.content}"></h3>
     </div>
 </div>
