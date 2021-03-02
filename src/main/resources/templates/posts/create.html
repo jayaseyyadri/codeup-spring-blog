@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <title>Create Post</title>
 
-<!--    <nav th:replace="/partials/partials::navbar"></nav>-->
 
 </head>
 <body>
+<nav th:replace="partials/partials::navbar"></nav>
+
 <div class="container">
 <!--    <h3 th:text="${post.user.email}"></h3>-->
 <form th:method="post" th:action="@{/posts/create}"th:object="${post}">
