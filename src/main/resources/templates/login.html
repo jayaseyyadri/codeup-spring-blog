@@ -1,24 +1,59 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <title>Log In</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel ="stylesheet" href="/static/css/materialize.css">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <nav th:replace="/partials/partials::navbar"></nav>
+
 </head>
 <body>
-<h1>Log In</h1>
 <div th:if="${param.error}">
     Invalid Username and Password.
 </div>
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
+<div class="container">
+    <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #4e4545;margin-top: 90px;margin-right: 90px">
+        <form th:action="@{/login}" class="col s12" method="post">
+            <div class='row'>
+                <div class='col s12'>
+                </div>
+            </div>
 
-<form th:action="@{/login}" method="post">
-    <label for="username">Username</label>
-    <input id="username" name="username" type="text" />
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password" />
-    <input type="submit" value="Log In" />
-</form>
+            <div class='row'>
+                <div class='input-field col s12'>
+                    <input class='validate' type='text' name='username' id='username' />
+                    <label for='username'>Enter your username</label>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='input-field col s12'>
+                    <input class='validate' type='password' name='password' id='password' />
+                    <label for='password'>Enter your password</label>
+                </div>
+
+                <br />
+                <div style="text-align: center;">
+                    <div class='row'>
+                        <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<h5 class="indigo-text">Login to you account <br> Don't have one ?
+    <button type='submit' name='btn_signup' class='col s12 btn btn-large waves-effect indigo'>Sign up!</button>
+</h5>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
+
+

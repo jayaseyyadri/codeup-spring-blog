@@ -17,12 +17,12 @@
     <input type="hidden" th:field="*{id}"/>
 
     <button type="submit">Submit</button>
+    <button type="submit">Delete Post</button>
 
 </form>
 
-    <form th:action="@{/posts/delete/{id}/delete(id=${post.id})}" method="POST">
-         <button type="submit">Delete Post</button>
-    </form>
+<!--    <form th:action="@{/posts/{id}/delete(id=${post.id})}" method="POST" th:object="{post}">-->
+<!--    </form>-->
 </div>
 
 </body>
