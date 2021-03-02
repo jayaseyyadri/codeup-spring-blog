@@ -7,14 +7,20 @@
 </head>
 <body>
     <nav th:fragment="navbar" class="navbar navbar-expand-lg">
-        <ul>
-            <li class ="nav-item"><a href="#">Home</a></li>
-            <li><a th:href="">About Us</a></li>
-            <li><a th:href="">Contact us</a></li>
-            <li><a th:href="">Media</a> </li>
-            <li><a th:href="@{/roll-dice}">Roll dice</a> </li>
-
-        </ul>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo right">Spring Blog</a>
+            </div>
+            <nav class="nav-extended">
+                <div>
+                    <ul class="tabs tabs-transparent">
+                        <li class="tab"><a href="sign-up">Sign up</a></li>
+                        <li class="tab"><a class="active" href="login">Login</a></li>
+                        <!--                <li class="tab"><a class="active" href="#test2">Contact us!</a></li>-->
+                        <li class="tab disabled"><a href="index">View Posts</a></li>
+                        <!--                <li class="tab disabled"><a href="#test3"></a></li>-->
+                    </ul>
+                </div>
+            </nav>
     </nav>
 
     <div th:fragment="assets" th:remove="tag">

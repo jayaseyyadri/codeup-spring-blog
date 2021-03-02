@@ -9,6 +9,7 @@ import com.jaya.springblog.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -61,15 +62,18 @@ public class SpringblogPostController {
     }
 
 
-    @PostMapping("/posts/{id}/delete")
-    public String deletePost(@PathVariable long id){
-        postsDao.deleteById(id);
+    @GetMapping("/posts/{id}/delete")
+    public String deletePost(@PathVariable long id,Model model){
+        if (postsDao.findById(id).isPresent()) {
+            postsDao.deleteById(id);
+            return "redirect:/posts";
+        }
         return "redirect:/posts";
+    }
 
         //we use Path Request Param when we need get info from a prepopulated form
         //  path variable when we need to use use a param we declare
 
-    }
 
     @GetMapping("/posts/create")
     public String postForm(Model model){
