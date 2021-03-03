@@ -8,22 +8,6 @@
 </head>
 <body>
 
-<nav th:fragment="navbar" class="navbar navbar-expand-lg">
-    <div class="nav-wrapper">
-        <a href="#" class="brand-logo center">Spring Blog</a>
-    </div>
-    <nav class="nav-extended">
-        <div>
-            <ul class="tabs tabs-transparent">
-                <li class="tab"><a class="active" href="create">Create a Post</a></li>
-
-                <!--                <li class="tab"><a class="active" href="#test2">Contact us!</a></li>-->
-                <li class="tab disabled"><a href="index">View Posts</a></li>
-                <!--                <li class="tab disabled"><a href="#test3"></a></li>-->
-            </ul>
-        </div>
-    </nav>
-</nav>
 <h1> View single post below:</h1>
 <h3 th:text="${post.title}"></h3>
 <p th:text="${post.content}"></p>
