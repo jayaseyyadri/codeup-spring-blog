@@ -13,11 +13,11 @@
             <nav class="nav-extended">
                 <div>
                     <ul class="tabs tabs-transparent">
-                        <li class="tab"><a href="sign-up">Sign up</a></li>
-                        <li class="tab"><a class="active" href="login">Login</a></li>
+                        <li sec:authorize="isAnonymous()" class="tab"><a href="sign-up">Sign up</a></li>
+                        <li sec:authorize="isAnonymous()" class="tab"><a class="active" href="login">Login</a></li>
+                        <li sec:authorize ="isAuthenticated()" class="tab disabled"><a href="login">View Posts</a></li>
+                        <!--                <li class="tab"><a class="active" href="#test2">Profile!</a></li>-->
                         <!--                <li class="tab"><a class="active" href="#test2">Contact us!</a></li>-->
-                        <li class="tab disabled"><a href="index">View Posts</a></li>
-                        <!--                <li class="tab disabled"><a href="#test3"></a></li>-->
                     </ul>
                 </div>
             </nav>
