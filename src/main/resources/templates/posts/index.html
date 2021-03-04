@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>View your posts below:</title>
+    <title>View Posts:</title>
 
     <!--Import Google Icon Font-->
     <!--    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
@@ -15,23 +15,22 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <!--    <nav th:replace="/partials/partials::navbar"></nav>-->
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/materialize.css">
 </head>
 <body>
 <div>
 
     <nav th:fragment="navbar" class="navbar navbar-expand-lg">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">Spring Blog</a>
+            <a href="#" class="brand-logo center">Welcome to Spring Blog</a>
         </div>
         <nav class="nav-extended">
             <div>
                 <ul class="tabs tabs-transparent">
-                    <li class="tab "><a href="index">View Posts</a></li>
                     <li class="tab"><a href="/posts/create">Create a Post</a></li>
-
-                    <!--                <li class="tab"><a class="active" href="#test2">Contact us!</a></li>-->
-                    <!--                <li class="tab disabled"><a href="#test3"></a></li>-->
+                    <li class="tab"><a href="#">My Posts</li>
                 </ul>
             </div>
         </nav>
