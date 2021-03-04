@@ -50,6 +50,8 @@ public class SpringblogPostController {
     @GetMapping("/posts/{id}/edit")
     public String editPostForm(@PathVariable long id, Model model) {
         model.addAttribute("post", postsDao.getOne(id));
+        User user =usersDao.findAll().get(0);
+        if (user==null)
         return "posts/edit";
     }
 

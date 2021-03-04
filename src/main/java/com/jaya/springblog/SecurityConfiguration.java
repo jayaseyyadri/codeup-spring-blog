@@ -43,7 +43,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/ads/*", "/posts/*")
+                .antMatchers("/ads/*", "/posts/*","/posts/*/*")
                 .authenticated();
 
     }
