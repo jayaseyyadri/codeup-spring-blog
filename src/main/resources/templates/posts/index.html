@@ -30,16 +30,36 @@
             <div>
                 <ul class="tabs tabs-transparent">
                     <li class="tab"><a href="/posts/create">Create a Post</a></li>
-                    <li class="tab"><a href="#">My Posts</li>
+                    <li class="tab"><a href="#">My Posts</a></li>
                 </ul>
             </div>
         </nav>
     </nav>
 
 
+    <div class="row">
+    <div class="col s12 m7">
+        <div class="card">
+            <div class="card-image">
+                <img src="images/sample-1.jpg">
+                <div th:each="singlePost : ${posts}" >
+                <span class="card-title"><a th:text="${singlePost.title}"  th:href="@{/posts/{id}(id=${singlePost.id})}"></a></span>
+                </div>
+            </div>
+            <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+                <a href="#">This is a link</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-<p> your post  below:</p>
+
+<p> View posts  below:</p>
 
     <div th:each="singlePost : ${posts}" >
 <a th:text="${singlePost.title}"  th:href="@{/posts/{id}(id=${singlePost.id})}"></a>
