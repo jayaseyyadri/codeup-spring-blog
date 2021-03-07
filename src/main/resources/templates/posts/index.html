@@ -3,70 +3,71 @@
 
 <head>
 
-    <meta charset="UTF-8">
+    <!--    Title-->
     <title>View Posts:</title>
-
-    <!--Import Google Icon Font-->
-    <!--    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+    <!--Let browser know website is optimized for mobile-->
+    <meta charset="UTF-8" name="viewport"
+          content="width=device-width, initial-scale=1.0,maximum scale=1.0,minimum scale=1.0"/>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<!--    <nav th:replace="/partials/partials::navbar"></nav>-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/materialize.css">
+    <!--    Materialize font &  icos-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--    Custom stylesheet-->
+    <link rel="stylesheet" type="text/css" href="@{/css/materialize.css}">
 </head>
 <body>
-<div>
 
+<div>
+    <!--NAVBAR-->
     <nav th:fragment="navbar" class="navbar navbar-expand-lg">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">Welcome to Spring Blog</a>
+            <h4 class="brand-logo center">Welcome to Spring Blog</h4>
         </div>
         <nav class="nav-extended">
             <div>
                 <ul class="tabs tabs-transparent">
                     <li class="tab"><a href="/posts/create">Create a Post</a></li>
-                    <li class="tab"><a href="#">My Posts</a></li>
+                    <li class="tab"><a href="/posts/show">View Posts</a></li>
                 </ul>
             </div>
         </nav>
     </nav>
 
-
     <div class="row">
-    <div class="col s12 m7">
-        <div class="card">
-            <div class="card-image">
-                <img src="images/sample-1.jpg">
-                <div th:each="singlePost : ${posts}" >
-                <span class="card-title"><a th:text="${singlePost.title}"  th:href="@{/posts/{id}(id=${singlePost.id})}"></a></span>
+        <div class="col s12 m7">
+            <div class="card">
+                <div class="card-image">
+                    <div th:each="singlePost : ${posts}">
+                        <span class="card-title"><a th:text="${singlePost.title}"
+                                                    th:href="@{/posts/{id}(id=${singlePost.id})}"></a></span>
+                    </div>
                 </div>
-            </div>
-            <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-                <a href="#">This is a link</a>
+                <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">This is a link</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
+    <p> View posts below:</p>
 
-<p> View posts  below:</p>
-
-    <div th:each="singlePost : ${posts}" >
-<a th:text="${singlePost.title}"  th:href="@{/posts/{id}(id=${singlePost.id})}"></a>
-<h3 th:text="${singlePost.content}"></h3>
+    <div th:each="singlePost : ${posts}">
+        <a th:text="${singlePost.title}" th:href="@{/posts/{id}(id=${singlePost.id})}"></a>
+        <h3 th:text="${singlePost.content}"></h3>
     </div>
 </div>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
+
 </html>
