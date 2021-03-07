@@ -2,3 +2,6 @@ body{font-family: 'Parisienne', cursive;
 background-color: #318b40;
 }
 
+.postTitle{
+    position: relative;
+}

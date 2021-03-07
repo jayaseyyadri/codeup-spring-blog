@@ -41,7 +41,7 @@
             <div class="card">
                 <div class="card-image">
                     <div th:each="singlePost : ${posts}">
-                        <span class="card-title"><a th:text="${singlePost.title}"
+                        <span class="card-title postTitle"><a th:text="${singlePost.title}"
                                                     th:href="@{/posts/{id}(id=${singlePost.id})}"></a></span>
                     </div>
                 </div>
