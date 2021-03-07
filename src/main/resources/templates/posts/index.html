@@ -49,9 +49,6 @@
                     <p>I am a very simple card. I am good at containing small bits of information.
                         I am convenient because I require little markup to use effectively.</p>
                 </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
             </div>
         </div>
     </div>
@@ -59,10 +56,10 @@
 
     <p> View posts below:</p>
 
-    <div th:each="singlePost : ${posts}">
-        <a th:text="${singlePost.title}" th:href="@{/posts/{id}(id=${singlePost.id})}"></a>
-        <h3 th:text="${singlePost.content}"></h3>
-    </div>
+<!--    <div th:each="singlePost : ${posts}">-->
+<!--        <a th:text="${singlePost.title}" th:href="@{/posts/{id}(id=${singlePost.id})}"></a>-->
+<!--        <h3 th:text="${singlePost.content}"></h3>-->
+<!--    </div>-->
 </div>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
