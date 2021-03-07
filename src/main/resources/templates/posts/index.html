@@ -14,9 +14,9 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
     <!--    Materialize font &  icos-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
     <!--    Custom stylesheet-->
-    <link rel="stylesheet" type="text/css" href="@{/css/materialize.css}">
+    <link rel="stylesheet" type="text/css" href="/css/materialize.css">
 </head>
 <body>
 
@@ -36,33 +36,15 @@
         </nav>
     </nav>
 
-    <div class="row">
-        <div class="col s12 m7">
-            <div class="card">
-                <div class="card-image">
-                    <div th:each="singlePost : ${posts}">
-                        <span class="card-title postTitle"><a th:text="${singlePost.title}"
-                                                    th:href="@{/posts/{id}(id=${singlePost.id})}"></a></span>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <p> View posts below:</p>
 
-<!--    <div th:each="singlePost : ${posts}">-->
-<!--        <a th:text="${singlePost.title}" th:href="@{/posts/{id}(id=${singlePost.id})}"></a>-->
-<!--        <h3 th:text="${singlePost.content}"></h3>-->
-<!--    </div>-->
+    <div th:each="singlePost : ${posts}">
+        <a th:text="${singlePost.title}" th:href="@{/posts/{id}(id=${singlePost.id})}"></a>
+        <h3 th:text="${singlePost.content}"></h3>
+    </div>
 </div>
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
